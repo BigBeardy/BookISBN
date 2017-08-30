@@ -2,13 +2,14 @@ def clean(number)
     string = number
     string.gsub!("-", "")
     string.gsub!(" ", "")
+    puts number
 end
 def isbn_length(number)
        string = number
     if string.length == 10 
      true
     else string.length == 13
-     false
+     true
     end
 end
 
@@ -32,5 +33,5 @@ def isbn_length_13(number)
 end
 end
 
-def isbn_length_x(number)
-	if index(9)
+# def isbn_fixing_x(number)
+# 	  index[9]=10
