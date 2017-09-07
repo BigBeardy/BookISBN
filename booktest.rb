@@ -1,13 +1,14 @@
-require "minitest/autorun"
-require_relative "bookisbn.rb"
-class TestISBN < Minitest::Test
+require 'sinatra'
+require_relative 'class_isbn.rb'
 
-     def test_length
-        isbn = "1234"
-        assert_equal(false, isbn_length(isbn))
-    end
+get '/' do
+	#'New line of text'
+	erb :ISBN_input, :locals => {:isbn_num => '', :results => '', :message1 => '', :message2 => ''}
+end
 
-    # def test_x_10
-    #  assert equal(isbn_fixing_x    index(9))  
-
+post '/ISBN_num' do
+	isbn_num = params[:isbn_input]
+	results = check_valid_isbn?(isbn_num)
+	#"#{isbn_num} is --> #{results}"
+	erb :ISBN_input, :locals => {:isbn_num => isbn_num, :results => results, :message1 => ' is a ', :message2 => ' ISBN'}
 end
