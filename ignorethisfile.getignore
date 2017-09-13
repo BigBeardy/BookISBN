@@ -1,0 +1,4 @@
+ENV['S3_KEY']            = ‘your s3 key here’
+        ENV['S3_SECRET']         = ‘3tKsezyuei05d4mNuhDPvMUI3IonkwmKeK1CtVk+’
+        ENV['S3_BUCKET']         = ’send_to_bucket’
+        ENV['S3_File']           = 'helloworld.CSV'

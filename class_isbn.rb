@@ -1,5 +1,7 @@
 def remove_spaces_hypens(isbn_num)
-	isbn_num.delete(' ' '-')
+	isbn_num.delete(' -')
+	isbn_num.delete('y' 'z')
+	isbn_num.delete('a..w')
 end
 
 #Made two functions to do letter check differently based on length

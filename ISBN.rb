@@ -36,9 +36,9 @@ def verify_isbn(isbn_num)
 		#Checks if the isbn_num is length 10, or length 9 with and X
 		#Moves to the formula for determining the check digit if so
 		if nums.length == 10 ||
-			nums.length == 9 &&
+			nums.length == 9 &&   
 			isbn_num[-1] == 'X' ||
-			isbn_num[-1] == 'x'
+			isbn_num[-1] == 'x' ||
 			#Does the calculation for the check digit
 			#Adds digit position times the value of the position converted to integer
 			#To a variable called total

@@ -11,4 +11,4 @@ post '/ISBN_num' do
 	results = check_valid_isbn?(isbn_num)
 	#"#{isbn_num} is --> #{results}"
 	erb :ISBN_input, :locals => {:isbn_num => isbn_num, :results => results, :message1 => ' is a ', :message2 => ' ISBN'}
-end
+end     
