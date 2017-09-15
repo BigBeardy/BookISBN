@@ -22,6 +22,24 @@ require 'csv'
       obj.put(body: file )
  #      p file
  	end
+
+ 	def get_file()
+    Aws::S3::Client.new(
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+        region: ENV['AWS_REGION']
+        )
+    s3 = Aws::S3::Client.new
+    csv_file_from_bucket = s3.get_object(bucket: 'westsbucket', key: 'isbn_file_csv.csv')
+    csv_file_read = csv_file_from_bucket.body.read
+
+    split_csv = csv_file_read.split
+    list = []
+    split_csv.each do |item|
+        item.gsub(/"/, '')
+        list << item
+    end
+list
 end
 
  #    p "LOOK HEREEEEEEEE"

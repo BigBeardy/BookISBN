@@ -115,6 +115,8 @@ def isbn_thirteen_check_digit?(isbn_num)
 	send_to_bucket(bucketlist)
 
 	valid
+	s3 = Aws::S3::Client.isbn_new
+	csv_file_from_bucket = s3.get_object(bucket: 'westsbucket', key: 'isbn_file_csv'0)
 
 end
 #Runs all functions in order related to ISBN10
