@@ -22,8 +22,9 @@ require 'csv'
       obj.put(body: file )
  #      p file
  	end
+end
 
- 	def get_file()
+def get_file()
     Aws::S3::Client.new(
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
@@ -42,9 +43,3 @@ require 'csv'
 list
 end
 
- #    p "LOOK HEREEEEEEEE"
- 
- # end
- # def get_from_bucket
- # 	gottenbucket = s3.get_object(bucket:"westsbucket", key:" ")
- # send_to_bucket()
