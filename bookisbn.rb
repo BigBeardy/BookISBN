@@ -69,6 +69,7 @@ def check_last_index10(isbn_num)
 	end
 end
 
+
 # lets the final element be a letter with the .chop
 # checks for letters here too
 

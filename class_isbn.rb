@@ -1,7 +1,11 @@
+require_relative 'idfk.rb'
+
+
+
 def remove_spaces_hypens(isbn_num)
 	isbn_num.delete(' -')
 	isbn_num.delete('y' 'z')
-	isbn_num.delete('a..w')
+	# isbn_num.delete('a..w')
 end
 
 #Made two functions to do letter check differently based on length
@@ -67,6 +71,10 @@ def isbn_ten_check_digit?(isbn_num)
 	end
 	#Calls valid, which is false if none of the conditions were met.
 	#True if the calculations check out and ISBN is valid.
+	bucketlist = isbn_num.to_s + ", " + valid.to_s
+
+	send_to_bucket(bucketlist)
+
 	valid
 
 end
@@ -102,7 +110,12 @@ def isbn_thirteen_check_digit?(isbn_num)
 	else
 		valid = false
 	end
+	bucketlist = isbn_num.to_s + ", " + valid.to_s
+
+	send_to_bucket(bucketlist)
+
 	valid
+
 end
 #Runs all functions in order related to ISBN10
 #If letter_check_ten is true, moves to next line
