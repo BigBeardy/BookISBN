@@ -34,12 +34,13 @@ def get_file()
     csv_file_from_bucket = s3.get_object(bucket: 'westsbucket', key: 'isbn_file_csv.csv')
     csv_file_read = csv_file_from_bucket.body.read
 
-    split_csv = csv_file_read.split
+    split_csv = csv_file_read.split(",")
     list = []
     split_csv.each do |item|
         item.gsub(/"/, '')
         list << item
     end
-list
+    p list
+list.each_slice(2).to_a
 end
 

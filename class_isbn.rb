@@ -3,9 +3,9 @@ require_relative 'idfk.rb'
 
 
 def remove_spaces_hypens(isbn_num)
-	isbn_num.delete(' -')
-	isbn_num.delete('y' 'z')
-	# isbn_num.delete('a..w')
+
+	isbn_num.gsub(/[^0-9a-z]/, '')
+	
 end
 
 #Made two functions to do letter check differently based on length
@@ -115,8 +115,8 @@ def isbn_thirteen_check_digit?(isbn_num)
 	send_to_bucket(bucketlist)
 
 	valid
-	s3 = Aws::S3::Client.isbn_new
-	csv_file_from_bucket = s3.get_object(bucket: 'westsbucket', key: 'isbn_file_csv')
+	# s3 = Aws::S3::Client.isbn_new
+	# csv_file_from_bucket = s3.get_object(bucket: 'westsbucket', key: 'isbn_file_csv')
 
 end
 #Runs all functions in order related to ISBN10
@@ -156,7 +156,7 @@ end
 #hypens or spaces.  If length is 10, calls our combined_isbn_ten? function.
 #If length is 13, calls our combined_isbn_13? function.
 #If length is anything else, valid remains false, the way we assigned it at the top.
-def check_valid_isbn?(isbn_num)
+def check_valid_isbn(isbn_num)
 
 	isbn_new = remove_spaces_hypens(isbn_num)
 

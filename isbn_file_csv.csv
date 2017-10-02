@@ -1,2 +1,5 @@
-123456789x, true
-111111111x, false
+123456789x,valid,
+adsf,invalid,
+123456789x,valid,
+asdf,invalid,
+fdfdf,invalid,
